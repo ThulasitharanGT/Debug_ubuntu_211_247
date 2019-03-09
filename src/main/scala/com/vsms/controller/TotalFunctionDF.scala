@@ -225,6 +225,41 @@ object TotalFunctionDF extends SparkOpener {
      IOReadWrite.DfOverWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN100_")
 
 
+     //Testing Report with select condition
+     // putting parameters in map before passing
+
+     DFMap_pass.put("%df1%",DFMap("Branch_df"))
+     ArgMap.put("*","*")
+     ArgMap.put(QueryBuilderConstants.WHERE_CONDITION," 1=1 ")
+
+     //Calling function
+
+     val Profit_loss_report=ProjectFunctionDfVersion.Retrival_info_fun(1,DFMap_pass,ArgMap,DFMap_List)
+
+     //displaying function output
+
+     Profit_loss_report.show(false)
+     //writing output
+
+     IOReadWrite.DfOverWrite(Profit_loss_report,PathConstants.OUTPUT_BASE_PATH_DF+"Profit_loss_report_")
+     /*
+          DFMap_pass.put("%df1%",DFMap("Branch_df"))
+          DFMap_List.put("*",Seq("BUDGET_REMAINING + TURN_OVER)/BUDGET_ALLOCATION ", "VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" ))
+          ArgMap.put(QueryBuilderConstants.WHERE_CONDITION," 1=1 ")
+
+          //Calling function
+
+          val Sales_service_report=ProjectFunctionDfVersion.Retrival_info_fun(4,DFMap_pass,ArgMap,DFMap_List)
+      */
+     //val Sales_service_report=DFMap("Branch_df").select( expr("(BUDGET_REMAINING + TURN_OVER)/BUDGET_ALLOCATION"),"VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
+     // val Sales_service_report=DFMap("Branch_df").selectExpr("BUDGET_REMAINING+TURN_OVER/BUDGET_ALLOCATION","VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
+     //displaying function output
+
+     // Sales_service_report.show(false)
+     //writing output
+
+     //IOReadWrite.DfOverWrite(Sales_service_report,PathConstants.OUTPUT_BASE_PATH_DF+"Sales_service_report_")
+
     }
 
  spark.close()

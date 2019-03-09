@@ -205,6 +205,25 @@ val spark = SparkSessionLoc("ViewCreator")
 
     IOReadWrite.DfOverWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN100_")
 
+    //Report with select condition
+    // putting parameters in map before passing
+
+    ArgMap.put("%t1%","Branch_view b")
+    ArgMap.put("*","(BUDGET_REMAINING+TURN_OVER)/BUDGET_ALLOCATION as PLS,VEHICLES_SOLD,MONTH_YEAR,BRANCH_ID")
+    ArgMap.put("%where_condition%"," 1=1 ")
+
+    //Calling function
+
+    val Sales_service_report=ProjectFunction.Retrival_info_fun(1,Query_df,ArgMap)
+
+    //displaying function output
+
+    Sales_service_report.show(false)
+
+    //writing output
+
+    IOReadWrite.DfOverWrite(Sales_service_report,PathConstants.OUTPUT_BASE_PATH+"Sales_service_report_")
+
   }
   
 
