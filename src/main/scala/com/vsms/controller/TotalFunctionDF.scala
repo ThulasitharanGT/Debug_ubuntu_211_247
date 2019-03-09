@@ -70,7 +70,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //Testing SCN 1 with where condition
      // putting parameters in map before passing
-     DFMap_pass.put("%df1%",DFMap(" "))
+     DFMap_pass.put("%df1%",DFMap("Staff_df"))
       ArgMap.put(QueryBuilderConstants.WHERE_CONDITION,"DESIGNATION = \'MECHANIC\' ")
       ArgMap.put("*","*")
 
