@@ -13,8 +13,7 @@ object ProjectFunctionDF extends SparkOpener{
   {
 
     // passing file information for avro through class
-    var formatter = new DataFrameFormatter("com.databricks.spark.avro",true,true,"|")
-
+    var formatter = new DataFrameFormatter(DataFrameFormatter.format_avro,DataFrameFormatter.header_true,DataFrameFormatter.inferSchema_true,DataFrameFormatter.delimiter_OR,DataFrameFormatter.SaveMode_NA)
 
    var temp=IOReadWrite.DFReadCsvAvro(PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_condition_avro",formatter)
    temp.createOrReplaceTempView("temp_avro")

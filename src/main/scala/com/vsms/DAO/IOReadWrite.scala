@@ -8,22 +8,12 @@ import com.vsms.bean.DataFrameFormatter
 
 object IOReadWrite extends SparkOpener {
 
-  def DFAppend (DF : DataFrame, FolderPath :String) : Unit =
+  def DfWrite(DF : DataFrame, FolderPath :String,formatter :DataFrameFormatter) : Unit =
   {
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Append).parquet(FolderPath+"parq\\")
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Append).csv(FolderPath+"csv\\")
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Append).avro(FolderPath+"avro\\")
-    DF.write.mode(SaveMode.Append).json(FolderPath+"json\\")
-    println(FolderPath)
-
-  }
-
-  def DfOverWrite(DF : DataFrame, FolderPath :String) : Unit =
-  {
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Overwrite).parquet(FolderPath+"parq\\")
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Overwrite).csv(FolderPath+"csv\\")
-    DF.write.option("sep","|").option("header", "true").mode(SaveMode.Overwrite).avro(FolderPath+"avro\\")
-    DF.write.mode(SaveMode.Overwrite).json(FolderPath+"json\\")
+    DF.write.option("sep",formatter.delimiter).option("header", formatter.header).mode(formatter.SaveMode).parquet(FolderPath+"parq\\")
+    DF.write.option("sep",formatter.delimiter).option("header", formatter.header).mode(formatter.SaveMode).csv(FolderPath+"csv\\")
+    DF.write.option("sep",formatter.delimiter).option("header", formatter.header).mode(formatter.SaveMode).avro(FolderPath+"avro\\")
+    DF.write.mode(formatter.SaveMode).json(FolderPath+"json\\")
     println(FolderPath)
 
   }

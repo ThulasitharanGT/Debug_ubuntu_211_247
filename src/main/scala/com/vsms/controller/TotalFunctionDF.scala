@@ -35,7 +35,7 @@ object TotalFunctionDF extends SparkOpener {
      DFInfoMap.put("Customer","Customer")
 
      // schema , delimiter and other stuff
-      var formatter = new DataFrameFormatter("com.databricks.spark.csv",true,true,"|")
+     var formatter = new DataFrameFormatter(DataFrameFormatter.format_csv,DataFrameFormatter.header_true,DataFrameFormatter.inferSchema_true,DataFrameFormatter.delimiter_OR,DataFrameFormatter.Save_Mode_Overwrite)
 
      // map for DF calling function and passing map as argument
 
@@ -66,7 +66,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-      IOReadWrite.DfOverWrite(scn_1_date_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_date_")
+      IOReadWrite.DfWrite(scn_1_date_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_date_",formatter)
 
      //Testing SCN 1 with where condition
      // putting parameters in map before passing
@@ -84,7 +84,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_1_str_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_str_")
+     IOReadWrite.DfWrite(scn_1_str_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_str_",formatter)
 
      //Testing SCN 1 with number between condition
      // putting parameters in map before passing
@@ -103,7 +103,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_1_int_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_int_")
+     IOReadWrite.DfWrite(scn_1_int_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_int_",formatter)
 
      //Testing SCN 1 with date in where condition
      // putting parameters in map before passing
@@ -122,7 +122,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_1_date_Equals_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_date_Equals_")
+     IOReadWrite.DfWrite(scn_1_date_Equals_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN1_date_Equals_",formatter)
 
      //Testing SCN 2 with join condition and multiple column join
      // putting parameters in map before passing
@@ -154,7 +154,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_2_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_")
+     IOReadWrite.DfWrite(scn_2_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_",formatter)
 
      //Testing SCN 3 with join condition and multiple column join
      // putting parameters in map before passing
@@ -171,7 +171,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_3_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN3_")
+     IOReadWrite.DfWrite(scn_3_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN3_",formatter)
 
      //Testing SCN 2 with join condition and multiple column join a logical where condition
      // putting parameters in map before passing
@@ -190,7 +190,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_2_condition1_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_condition2_")
+     IOReadWrite.DfWrite(scn_2_condition1_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_condition2_",formatter)
 
      //Testing SCN 1 with where condition
      // putting parameters in map before passing
@@ -208,7 +208,7 @@ object TotalFunctionDF extends SparkOpener {
      scn_2_condition_df_main.show(false)
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_2_condition_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_condition_")
+     IOReadWrite.DfWrite(scn_2_condition_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN2_condition_",formatter)
 
      //Testing Invalid SCN number
 
@@ -222,7 +222,7 @@ object TotalFunctionDF extends SparkOpener {
 
      //writing output
 
-     IOReadWrite.DfOverWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN100_")
+     IOReadWrite.DfWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH_DF+"SCN100_",formatter)
 
 
      //Testing Report with select condition
@@ -241,7 +241,7 @@ object TotalFunctionDF extends SparkOpener {
      Profit_loss_report.show(false)
      //writing output
 
-     IOReadWrite.DfOverWrite(Profit_loss_report,PathConstants.OUTPUT_BASE_PATH_DF+"Profit_loss_report_")
+     IOReadWrite.DfWrite(Profit_loss_report,PathConstants.OUTPUT_BASE_PATH_DF+"Profit_loss_report_",formatter)
      /*
           DFMap_pass.put("%df1%",DFMap("Branch_df"))
           DFMap_List.put("*",Seq("BUDGET_REMAINING + TURN_OVER)/BUDGET_ALLOCATION ", "VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" ))
@@ -251,8 +251,8 @@ object TotalFunctionDF extends SparkOpener {
 
           val Sales_service_report=ProjectFunctionDfVersion.Retrival_info_fun(4,DFMap_pass,ArgMap,DFMap_List)
       */
-     //val Sales_service_report=DFMap("Branch_df").select( expr("(BUDGET_REMAINING + TURN_OVER)/BUDGET_ALLOCATION"),"VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
-     // val Sales_service_report=DFMap("Branch_df").selectExpr("BUDGET_REMAINING+TURN_OVER/BUDGET_ALLOCATION","VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
+    // val Sales_service_report=DFMap("Branch_df").select( ("(BUDGET_REMAINING + TURN_OVER)/BUDGET_ALLOCATION"),"VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
+      //val Sales_service_report=DFMap("Branch_df").selectExpr("BUDGET_REMAINING+TURN_OVER/BUDGET_ALLOCATION","VEHICLES_SOLD", "MONTH_YEAR" ,"BRANCH_ID" )
      //displaying function output
 
      // Sales_service_report.show(false)

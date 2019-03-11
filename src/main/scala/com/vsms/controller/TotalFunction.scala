@@ -23,7 +23,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     // creating views
 
-    var formatter = new DataFrameFormatter("com.databricks.spark.csv",true,true,"|")
+    var formatter = new DataFrameFormatter(DataFrameFormatter.format_csv,DataFrameFormatter.header_true,DataFrameFormatter.inferSchema_true,DataFrameFormatter.delimiter_OR,DataFrameFormatter.Save_Mode_Overwrite)
 
 
     // map for Arguments
@@ -72,7 +72,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_1_date_between_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_date_between_")
+    IOReadWrite.DfWrite(scn_1_date_between_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_date_between_",formatter)
 
     //Testing SCN 1 with where string
     // putting parameters in map before passing
@@ -91,7 +91,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_1_str_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_str_")
+    IOReadWrite.DfWrite(scn_1_str_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_str_",formatter)
 
     //Testing SCN 1 with where and between int
     // putting parameters in map before passing
@@ -110,7 +110,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_1_int_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_int_")
+    IOReadWrite.DfWrite(scn_1_int_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_int_",formatter)
 
     //Testing SCN 1 with where condition
     // putting parameters in map before passing
@@ -129,7 +129,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_1_date_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_date_")
+    IOReadWrite.DfWrite(scn_1_date_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_date_",formatter)
 
     //Testing SCN 2 with join condition
     // putting parameters in map before passing
@@ -150,7 +150,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_3_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN2_")
+    IOReadWrite.DfWrite(scn_3_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN2_",formatter)
 
     //Testing SCN 3 with join condition and  where  condition
     // putting parameters in map before passing
@@ -172,7 +172,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_4_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN3_")
+    IOReadWrite.DfWrite(scn_4_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN3_",formatter)
 
     //Testing SCN 1 with date where  condition
     // putting parameters in map before passing
@@ -191,7 +191,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_2_condition_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_condition_")
+    IOReadWrite.DfWrite(scn_2_condition_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN1_condition_",formatter)
 
     //Calling function
 
@@ -203,7 +203,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN100_")
+    IOReadWrite.DfWrite(scn_100_df_main,PathConstants.OUTPUT_BASE_PATH+"SCN100_",formatter)
 
     //Report with select condition
     // putting parameters in map before passing
@@ -222,7 +222,7 @@ val spark = SparkSessionLoc("ViewCreator")
 
     //writing output
 
-    IOReadWrite.DfOverWrite(Sales_service_report,PathConstants.OUTPUT_BASE_PATH+"Sales_service_report_")
+    IOReadWrite.DfWrite(Sales_service_report,PathConstants.OUTPUT_BASE_PATH+"Sales_service_report_",formatter)
 
   }
   
