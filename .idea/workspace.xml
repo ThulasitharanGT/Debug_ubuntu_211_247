@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/DFCreator$$anonfun$DFCreator$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/DFCreator$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/DFCreator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/IOReadWrite$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/IOReadWrite.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/ViewCreator$$anonfun$ViewCreator$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/ViewCreator$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/DAO/ViewCreator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/bean/DataFrameFormatter$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/bean/DataFrameFormatter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/constants/PathConstants/package$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/constants/PathConstants/package.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/constants/QueryBuilderConstants$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/constants/QueryBuilderConstants.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/ProjectFunctionDF$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/ProjectFunctionDF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/TotalFunction$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/TotalFunction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/TotalFunctionDF$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/controller/TotalFunctionDF.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package$$anonfun$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package$$anonfun$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package$$typecreator1$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunction/package.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunctionDfVersion$$typecreator1$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunctionDfVersion$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/service/ProjectFunctionDfVersion.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/util/DateFetcher$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/util/DateFetcher.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/util/SparkOpener$class.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/com/vsms/util/SparkOpener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$10.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$9.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$6.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$typecreator4$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vehiche_showroom_management_system_maven_release_1_0.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="2BInkV01zHhWNZJnfbF7Fo4X7QT" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager">
+    <configuration name="debugTest" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="main.scala.com.vsms.test.runObj" />
+      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <option name="PROGRAM_PARAMETERS" value="readStreamFormat=delta path=&quot;hdfs://localhost:8020/user/raptor/persist/marks/GoldToTriggerInput/&quot; goldCAPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/CA_Gold/&quot; goldSAPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/SA_Gold/&quot; semIdExamIDAssessmentYear=&quot;hdfs://localhost:8020/user/raptor/persist/marks/assessmentYearInfo_scd2/&quot; checkpointLocation=&quot;hdfs://localhost:8020/user/raptor/stream/checkpoint/SAGoldToDiamondCalc&quot; examIdToExamType=&quot;hdfs://localhost:8020/user/raptor/persist/marks/semIDAndExamIDAndExamType_scd2/&quot; diamondPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/diamondCalculatedAndPartitioned/&quot; semIdAndExamIdAndSubCode=hdfs://localhost:8020/user/raptor/persist/marks/semIDAndExamIDAndSubCode_scd2/" />
+      <option name="VM_PARAMETERS" value="-Dspark.driver.memory=2g" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="" />
+      <created>1656602610539</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656602610539</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>
+          <line>162</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>
+          <line>321</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
