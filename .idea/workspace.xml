@@ -7,25 +7,16 @@
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$10.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$7.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$8.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$9.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$5.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$anonfun$main$6.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$$typecreator4$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj$.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/scala/com/vsms/test/runObj.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$12$$anonfun$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$12$$anonfun$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$20.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$20.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$21.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$21.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$typecreator5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$typecreator5$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657264374974</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="debug">
+      <created>1657363396855</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657363396855</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -373,7 +373,7 @@ object runObj {
      )
     })*/.groupByKey(x => (x.getAs[String](0) // semId
       ,x.getAs[String](1) )// studentId
-    ).mapGroups((key,dataIterator)=>{
+    ).flatMapGroups((key,dataIterator)=>{
 
       val dataList=dataIterator.toList
 
@@ -383,51 +383,82 @@ object runObj {
       val semPassMark=new java.math.BigDecimal(60)
       println(s"dataList ${dataList}")
 
-      val caRow=allOtherRecord.filter(_.getAs[String](2)=="CA")
-      val saRow=allOtherRecord.filter(_.getAs[String](2)=="SA").head
+      val caList=allOtherRecord.filter(_.getAs[String](2)=="CA")
+      val saList=allOtherRecord.filter(_.getAs[String](2)=="SA")
 
       val subList=allOtherRecord.map(_.getAs[String](3)).distinct
 
-      Row(key._1, //semId
-        key._2,//studentId
-        , //subCode
-        caRow.getAs[java.math.BigDecimal](4), // ca marks
-        saRow.getAs[java.math.BigDecimal](4), // sa marks
-        caRow.getAs[java.math.BigDecimal](5), // ca pass marks
-        saRow.getAs[java.math.BigDecimal](5), // sa pass marks
-        caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128) // total marks
-         ,s"${caRow.getAs[String](7)};${saRow.getAs[String](7)}" // comments, concatenated By ~
-      ) match {
-        case value =>
-          Row(
-            value.getAs[String](0), // semId
-            value.getAs[String](1), // studentId
-            value.getAs[String](2), // subCode
-            value.getAs[java.math.BigDecimal](3), //caMarks
-            value.getAs[java.math.BigDecimal](4), //saMarks
-            value.getAs[java.math.BigDecimal](5), //ca passMarks
-            value.getAs[java.math.BigDecimal](6), //sa passMarks
-            value.getAs[java.math.BigDecimal](7), // totalMarks
-            Array(0,1).contains(value.getAs[java.math.BigDecimal](7).compareTo(semPassMark)) match {
+      subList.foldLeft(List.empty[Row]) ((rowList,incomingSub)=>
+        {
+          val caRow=caList.filter(_.getAs[String](3)==incomingSub).head
+          val saRow=saList.filter(_.getAs[String](3)==incomingSub).head
+
+          rowList :+ Row(key._1, //semId
+            key._2,//studentId
+            incomingSub , //subCode
+            caRow.getAs[java.math.BigDecimal](4), // ca marks
+            saRow.getAs[java.math.BigDecimal](4), // sa marks
+            caRow.getAs[java.math.BigDecimal](5), // ca pass marks
+            saRow.getAs[java.math.BigDecimal](5), // sa pass marks
+            caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128), // total marks
+            Array(0, 1).contains(caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128)
+              .compareTo(semPassMark)) match {
               case true =>
-                value.getAs[java.math.BigDecimal](4).compareTo(value.getAs[java.math.BigDecimal](6)) match {
-                  case compResult if List(0,1).contains(compResult) =>
-                    value.getAs[java.math.BigDecimal](3).compareTo(value.getAs[java.math.BigDecimal](5)) match {
-                      case compResult if List(0,1).contains(compResult) => "Passed ,Cleared SA and CA"
+                saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](5)) match {
+                  case compResult if List(0, 1).contains(compResult) =>
+                    caRow.getAs[java.math.BigDecimal](4).compareTo(caRow.getAs[java.math.BigDecimal](5)) match {
+                      case compResult if List(0, 1).contains(compResult) => "Passed ,Cleared SA and CA"
                       case _ => "Passed ,Cleared to clear SA. But failed to clear CA"
                     }
                   case _ => "Failed to clear SA"
                 }
               case false => "Failed to achieve pass mark in sem total"
             },
-          (value.getAs[java.math.BigDecimal](7).compareTo(semPassMark),value.getAs[java.math.BigDecimal](4).compareTo(value.getAs[java.math.BigDecimal](6))) match {
-            case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
-            case _ => "FAIL"
-          }
+            (caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128)
+              .compareTo(semPassMark), saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](5))) match {
+              case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
+              case _ => "FAIL"
+            }
+            ,s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~") }" // comments, concatenated By ~
           )
+        }) match {
+            case value =>
+              val caRow=totalRecord.filter(_.getAs[String](2)=="CA").head
+              val saRow=totalRecord.filter(_ match { case value => value.getAs[String](2)=="SA" }).head
 
-      }
-    })(RowEncoder(new StructType(Array(StructField("semId",StringType,true)
+              value :+ Row(
+                value.head.getAs[String](0), // semId
+                key._2, // studentId
+                "subTotal", // subCode
+                caRow.getAs[java.math.BigDecimal](4), //caMarks
+                saRow.getAs[java.math.BigDecimal](4), //saMarks
+                caRow.getAs[java.math.BigDecimal](5), //ca passMarks
+                saRow.getAs[java.math.BigDecimal](5), //sa passMarks
+                caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128), // totalMarks
+                Array(0, 1).contains(caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128)
+                  .compareTo(semPassMark.multiply(getBigDecimalFromInt(subList.size),java.math.MathContext.DECIMAL128))) match {
+                  case true =>
+                    saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](5)) match {
+                      case compResult if List(0, 1).contains(compResult) =>
+                        caRow.getAs[java.math.BigDecimal](4).compareTo(caRow.getAs[java.math.BigDecimal](5)) match {
+                          case compResult if List(0, 1).contains(compResult) => "Passed ,Cleared SA and CA"
+                          case _ => "Passed ,Cleared to clear SA. But failed to clear CA"
+                        }
+                      case _ => "Failed to clear SA"
+                    }
+                  case false => "Failed to achieve pass mark in sem total"
+                },
+                (caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128)
+                  .compareTo(semPassMark.multiply(getBigDecimalFromInt(subList.size),java.math.MathContext.DECIMAL128))
+                  , saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](6))) match {
+                  case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
+                  case _ => "FAIL"
+                },
+              s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~")}"
+              )
+          }
+        }
+    )(RowEncoder(new StructType(Array(StructField("semId",StringType,true)
     ,StructField("studentId",StringType,true)
       ,StructField("subCode",StringType,true)
       ,StructField("ca_marks",DecimalType(6,3),true)
@@ -437,6 +468,7 @@ object runObj {
       ,StructField("semTotal",DecimalType(6,3),true)
       ,StructField("comment",StringType,true)
       ,StructField("result",StringType,true)
+      ,StructField("attendanceComment",StringType,true)
     )))).show(false)
 
 
