@@ -1,4 +1,4 @@
-package main.scala.com.vsms.test
+package com.vsms.test
 
 import org.apache.spark.sql.Row
 import org.apache.spark.sql.catalyst.encoders.RowEncoder
@@ -317,8 +317,7 @@ object runObj {
                 value.head.getAs[java.math.BigDecimal](13), // sub level total
                 value.head.getAs[java.math.BigDecimal](14), // sub level pass mark
                 getBigDecimalFromInt(maxMarksNew) , // max marks
-                value.map(_ match { case x => (x.getAs[String](5),x.getAs[String](11))}) .filter(_._1 == null).map(_._2.split("~").last)
-                  .map(x => s"${subCode}:${x}").mkString(","), // combined exam level sub level comment
+                value.map(_ match { case x => (x.getAs[String](5),x.getAs[String](11))}).filter(_._1 == null).map(_._2).mkString(","), // combined exam level sub level comment
                 value.head.getAs[java.math.BigDecimal](13).compareTo(value.head.getAs[java.math.BigDecimal](14)) match {
                   case value if List(0,1).contains(value) => "pass"
                   case -1 => "fail"
@@ -327,6 +326,7 @@ object runObj {
           }
         )  match {
           case value =>
+            println(s"value in ${value}")
             value :+ Row(key._1, //semId
               key._2, // studentId
               key._3, // examType
@@ -339,7 +339,6 @@ object runObj {
             )
         }
 
-
       })(RowEncoder( new StructType(
         Array(
           StructField("semId",StringType,true),
@@ -351,10 +350,94 @@ object runObj {
           StructField("maxMarks",DecimalType(6,3),true),
           StructField("comments",StringType,true),
           StructField("result",StringType,true)
-        )))).groupByKey(x => (x.getAs[String]("semId")
-      ,x.getAs[String]("studentId"))).faltMapGroups((key,dataIterator)=>{
-      //filter SA, filter CA and do calc
-    })
+        ))))  // no idea new group by key is not recognizing column names from the row encoder
+      /*.groupByKey(x => (x.getAs[String]("semId")
+      ,x.getAs[String]("studentId"),
+    x.getAs[String]("subCode"))).mapGroups((key,dataIterator)=>{
+
+      val dataList=dataIterator.toList
+
+      println(s"dataList ${dataList}")
+
+      val caRow=dataList.filter(_.getAs[String]("examType")=="CA").head
+      val saRow=dataList.filter(_.getAs[String]("examType")=="SA").head
+
+      Row(key._1, //semId
+        key._2,//studentId
+        key._3, //subCode
+        caRow.getAs[java.math.BigDecimal]("marks"), // ca marks
+        saRow.getAs[java.math.BigDecimal]("marks"), // sa marks
+        caRow.getAs[java.math.BigDecimal]("passMarks"), // ca pass marks
+        caRow.getAs[java.math.BigDecimal]("passMarks"), // sa pass marks
+        caRow.getAs[java.math.BigDecimal]("marks").add(saRow.getAs[java.math.BigDecimal]("marks"),java.math.MathContext.DECIMAL128) // total marks
+     )
+    })*/.groupByKey(x => (x.getAs[String](0) // semId
+      ,x.getAs[String](1) )// studentId
+    ).mapGroups((key,dataIterator)=>{
+
+      val dataList=dataIterator.toList
+
+      val totalRecord=dataList.filter(_.getAs[String](3)=="subTotal")
+      val allOtherRecord=dataList.filter(_.getAs[String](3)!="subTotal")
+
+      val semPassMark=new java.math.BigDecimal(60)
+      println(s"dataList ${dataList}")
+
+      val caRow=allOtherRecord.filter(_.getAs[String](2)=="CA")
+      val saRow=allOtherRecord.filter(_.getAs[String](2)=="SA").head
+
+      val subList=allOtherRecord.map(_.getAs[String](3)).distinct
+
+      Row(key._1, //semId
+        key._2,//studentId
+        , //subCode
+        caRow.getAs[java.math.BigDecimal](4), // ca marks
+        saRow.getAs[java.math.BigDecimal](4), // sa marks
+        caRow.getAs[java.math.BigDecimal](5), // ca pass marks
+        saRow.getAs[java.math.BigDecimal](5), // sa pass marks
+        caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128) // total marks
+         ,s"${caRow.getAs[String](7)};${saRow.getAs[String](7)}" // comments, concatenated By ~
+      ) match {
+        case value =>
+          Row(
+            value.getAs[String](0), // semId
+            value.getAs[String](1), // studentId
+            value.getAs[String](2), // subCode
+            value.getAs[java.math.BigDecimal](3), //caMarks
+            value.getAs[java.math.BigDecimal](4), //saMarks
+            value.getAs[java.math.BigDecimal](5), //ca passMarks
+            value.getAs[java.math.BigDecimal](6), //sa passMarks
+            value.getAs[java.math.BigDecimal](7), // totalMarks
+            Array(0,1).contains(value.getAs[java.math.BigDecimal](7).compareTo(semPassMark)) match {
+              case true =>
+                value.getAs[java.math.BigDecimal](4).compareTo(value.getAs[java.math.BigDecimal](6)) match {
+                  case compResult if List(0,1).contains(compResult) =>
+                    value.getAs[java.math.BigDecimal](3).compareTo(value.getAs[java.math.BigDecimal](5)) match {
+                      case compResult if List(0,1).contains(compResult) => "Passed ,Cleared SA and CA"
+                      case _ => "Passed ,Cleared to clear SA. But failed to clear CA"
+                    }
+                  case _ => "Failed to clear SA"
+                }
+              case false => "Failed to achieve pass mark in sem total"
+            },
+          (value.getAs[java.math.BigDecimal](7).compareTo(semPassMark),value.getAs[java.math.BigDecimal](4).compareTo(value.getAs[java.math.BigDecimal](6))) match {
+            case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
+            case _ => "FAIL"
+          }
+          )
+
+      }
+    })(RowEncoder(new StructType(Array(StructField("semId",StringType,true)
+    ,StructField("studentId",StringType,true)
+      ,StructField("subCode",StringType,true)
+      ,StructField("ca_marks",DecimalType(6,3),true)
+      ,StructField("sa_marks",DecimalType(6,3),true)
+      ,StructField("ca_passMarks",DecimalType(6,3),true)
+      ,StructField("sa_passMarks",DecimalType(6,3),true)
+      ,StructField("semTotal",DecimalType(6,3),true)
+      ,StructField("comment",StringType,true)
+      ,StructField("result",StringType,true)
+    )))).show(false)
 
 
 
@@ -364,6 +447,6 @@ object runObj {
   def getBigDecimalFromDouble(intValue:Double=0.0)= new java.math.BigDecimal(intValue)
 
   def getBigDecimalFromRow(row:org.apache.spark.sql.Row,columnName:String)= row.getAs[java.math.BigDecimal](columnName)
-
+  val getSuccessCheck=(result:Int) => List(0,1).contains(result)
 
 }
