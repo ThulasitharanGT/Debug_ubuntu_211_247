@@ -50,7 +50,7 @@ object runObj {
     val examIDSemIDAndTypeMappedDF = spark.table("exam_id_sem_id_exam_type")
 
     examIDSemIDAndTypeMappedDF.persist(org.apache.spark.storage.StorageLevel.MEMORY_AND_DISK)
-    spark.table("exam_id_sem_id_exam_type").withColumn("finalRef",lit("finalRef")).show(false)
+  //  spark.table("exam_id_sem_id_exam_type").withColumn("finalRef",lit("finalRef")).show(false)
 
     // takes semID of incoming examID
 
@@ -71,7 +71,7 @@ object runObj {
       .drop("rankCol")
       .orderBy("semId,examId,examType,subjectCode,studentId".split(",").toSeq.map(col): _*)
 
-    semIdDF.withColumn("semIdDF", lit("semIdDF")).show(false)
+  //  semIdDF.withColumn("semIdDF", lit("semIdDF")).show(false)
 
     // takes examIds of incoming examID's semId
 
@@ -95,7 +95,7 @@ object runObj {
    val examIDsOfSemIdDF=examIDsOfSemIdDFTmp
     */
 
-    examIDsOfSemIdDF.withColumn("examIDsOfSemIdDF", lit("examIDsOfSemIdDF")).show(false)
+  //  examIDsOfSemIdDF.withColumn("examIDsOfSemIdDF", lit("examIDsOfSemIdDF")).show(false)
 
     val caExamIDsOfSemIdDF = examIDsOfSemIdDF.filter(col("examType") === lit("CA"))
     val saExamIDsOfSemIdDF = examIDsOfSemIdDF.filter(s"examType ='SA'")
@@ -141,7 +141,7 @@ object runObj {
         .as("readFromGoldInner") , col("readFromGoldInner.studentId") === col("readFromGold.studentId")
       ).select("readFromGold.*","examsAttended")*/
 
-    saRecordsForIncomingKeysDF.withColumn("saRecordsForIncomingKeysDF", lit("saRecordsForIncomingKeysDF")).show(false)
+   // saRecordsForIncomingKeysDF.withColumn("saRecordsForIncomingKeysDF", lit("saRecordsForIncomingKeysDF")).show(false)
 
     val caRecordsForIncomingKeysDF = caGoldInfo
       .where(s"examId in ${
@@ -150,7 +150,7 @@ object runObj {
         caExamIdAndStudentIdInfo.map(_._2) match {case value if value.size >0 => value.mkString("('","','","')") case value if value.size ==0 => "('')"}
       }").withColumn("examType", lit("CA"))
 
-    caRecordsForIncomingKeysDF.withColumn("saRecordsForIncomingKeysDF", lit("saRecordsForIncomingKeysDF")).show(false)
+   // caRecordsForIncomingKeysDF.withColumn("saRecordsForIncomingKeysDF", lit("saRecordsForIncomingKeysDF")).show(false)
 
 
     // process, second level fite, as first level is defined to handle scn like yours
@@ -271,7 +271,7 @@ object runObj {
             x.getAs[Long](13), // num_of_assessments
             x.getAs[Int](18) , // num_of_assessments_attended
             x.getAs[String](5) match { // assessment year is checked for null
-              case null => s"${x.getAs[String](1)}~${x.getAs[String](2)}"
+              case null => s"${x.getAs[String](1)}~${x.getAs[String](2)}" // examId~subCode
               case _ => ""
             }, // examId Not attended
             newMarksList.map(_.getAs[java.math.BigDecimal](14)).map( _ match {case null => getBigDecimalFromInt() case value =>  value}).
@@ -321,7 +321,8 @@ object runObj {
                 value.head.getAs[java.math.BigDecimal](13).compareTo(value.head.getAs[java.math.BigDecimal](14)) match {
                   case value if List(0,1).contains(value) => "pass"
                   case -1 => "fail"
-                } // sub level result
+                }, // sub level result
+                value.map(_.getAs[String](11)).filter(_.trim.size>0).flatMap(_.split("~")) match {case value if value.size% 2 ==0 && value.size !=0 => s"${value.grouped(2).map(_.toArray).foldLeft("")((commentStr,currentInfo) => commentStr.trim.size >0 match {case true => s"${commentStr},${currentInfo(0)}" case false => s"Did not attend ${currentInfo(0)}"  })} for ${value.last}" case _ => ""} // attendanceComment
               )
           }
         )  match {
@@ -335,7 +336,8 @@ object runObj {
               newResult.head.getAs[java.math.BigDecimal](15), // exam level passmark total
               newResult.head.getAs[java.math.BigDecimal](12), // total mark per exam Type
               value.filter(_.getAs[String](8) =="fail").map(_.getAs[String](3)).mkString(","), // failed subjects comment
-              value.filter(_.getAs[String](8) =="fail").size match {case value if value >0 => "FAIL" case _ => "PASS"}
+              value.filter(_.getAs[String](8) =="fail").size match {case value if value >0 => "FAIL" case _ => "PASS"},
+              newResult.map(_.getAs[String](11)).filter(_.trim.size >0).map(_.split("~")).groupBy(_(1)).map(x => s"Did not appear in ${x._2.head(0)} for ${x._1} ." ).mkString("Attendance report: \n","\n","")
             )
         }
 
@@ -349,7 +351,8 @@ object runObj {
           StructField("passMarks",DecimalType(6,3),true),
           StructField("maxMarks",DecimalType(6,3),true),
           StructField("comments",StringType,true),
-          StructField("result",StringType,true)
+          StructField("result",StringType,true),
+          StructField("attendanceComments",StringType,true)
         ))))  // no idea new group by key is not recognizing column names from the row encoder
       /*.groupByKey(x => (x.getAs[String]("semId")
       ,x.getAs[String]("studentId"),
@@ -372,7 +375,7 @@ object runObj {
         caRow.getAs[java.math.BigDecimal]("marks").add(saRow.getAs[java.math.BigDecimal]("marks"),java.math.MathContext.DECIMAL128) // total marks
      )
     })*/.groupByKey(x => (x.getAs[String](0) // semId
-      ,x.getAs[String](1) )// studentId
+      ,x.getAs[String](1) ) // studentId
     ).flatMapGroups((key,dataIterator)=>{
 
       val dataList=dataIterator.toList
@@ -420,6 +423,8 @@ object runObj {
               case _ => "FAIL"
             }
             ,s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~") }" // comments, concatenated By ~
+            ,saRow.getAs[String](9),
+            caRow.getAs[String](9)
           )
         }) match {
             case value =>
@@ -455,6 +460,8 @@ object runObj {
                   case _ => "FAIL"
                 },
               s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~")}"
+                ,saRow.getAs[String](9).split("\n").map(_.trim).filter(_.size >0) match {case value if value.size ==1 => "" case value => saRow.getAs[String](9)},
+              caRow.getAs[String](9).split("\n").map(_.trim).filter(_.size >0) match {case value if value.size ==1 => "" case value => caRow.getAs[String](9)}
               )
           }
         }
@@ -469,6 +476,8 @@ object runObj {
       ,StructField("comment",StringType,true)
       ,StructField("result",StringType,true)
       ,StructField("attendanceComment",StringType,true)
+      ,StructField("ca_attendanceComment",StringType,true)
+      ,StructField("sa_attendanceComment",StringType,true)
     )))).show(false)
 
 
