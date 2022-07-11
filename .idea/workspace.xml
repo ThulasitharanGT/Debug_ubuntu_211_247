@@ -12,25 +12,8 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$19.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$apply$19.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$apply$20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$20.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$21.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$22.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$23.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$23.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$24.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$24.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$25$$anonfun$26.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$25$$anonfun$27.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$25$$anonfun$apply$21.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$25.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$25.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$29.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$apply$22.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$typecreator5$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$typecreator5$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -111,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657376817613</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="debug">
+      <created>1657470000683</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1657470000683</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -125,11 +115,6 @@
           <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>
           <line>162</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="scala-line">
-          <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>
-          <line>461</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>

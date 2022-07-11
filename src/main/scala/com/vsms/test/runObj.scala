@@ -322,7 +322,7 @@ object runObj {
                   case value if List(0,1).contains(value) => "pass"
                   case -1 => "fail"
                 }, // sub level result
-                value.map(_.getAs[String](11)).filter(_.trim.size>0).flatMap(_.split("~")) match {case value if value.size% 2 ==0 && value.size !=0 => s"${value.grouped(2).map(_.toArray).foldLeft("")((commentStr,currentInfo) => commentStr.trim.size >0 match {case true => s"${commentStr},${currentInfo(0)}" case false => s"Did not attend ${currentInfo(0)}"  })} for ${value.last}" case _ => ""} // attendanceComment
+                value.map(_.getAs[String](11)).filter(_.trim.size>0).flatMap(_.split("~")) match {case value if value.size% 2 ==0 && value.size !=0 => s"${value.grouped(2).map(_.toArray).foldLeft("")((commentStr,currentInfo) => commentStr.trim.size >0 match {case true => s"${commentStr},${currentInfo(0)}" case false => s"Did not attend ${currentInfo(0)}"  })}" case _ => ""} // attendanceComment
               )
           }
         )  match {
@@ -391,10 +391,13 @@ object runObj {
 
       val subList=allOtherRecord.map(_.getAs[String](3)).distinct
 
-      subList.foldLeft(List.empty[Row]) ((rowList,incomingSub)=>
+     val finalCalculationWithComments= subList.foldLeft(List.empty[Row]) ((rowList,incomingSub)=>
         {
           val caRow=caList.filter(_.getAs[String](3)==incomingSub).head
           val saRow=saList.filter(_.getAs[String](3)==incomingSub).head
+
+          println(s"caRow ${caRow}")
+          println(s"saRow ${saRow}")
 
           rowList :+ Row(key._1, //semId
             key._2,//studentId
@@ -422,12 +425,13 @@ object runObj {
               case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
               case _ => "FAIL"
             }
-            ,s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~") }" // comments, concatenated By ~
             ,saRow.getAs[String](9),
             caRow.getAs[String](9)
+            ,""
           )
         }) match {
             case value =>
+              println(s"value in ${value}")
               val caRow=totalRecord.filter(_.getAs[String](2)=="CA").head
               val saRow=totalRecord.filter(_ match { case value => value.getAs[String](2)=="SA" }).head
 
@@ -446,7 +450,10 @@ object runObj {
                     saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](5)) match {
                       case compResult if List(0, 1).contains(compResult) =>
                         caRow.getAs[java.math.BigDecimal](4).compareTo(caRow.getAs[java.math.BigDecimal](5)) match {
-                          case compResult if List(0, 1).contains(compResult) => "Passed ,Cleared SA and CA"
+                          case compResult if List(0, 1).contains(compResult)  && value.map(_.getAs[String](9)=="FAIL").size ==0=>
+                            "Passed ,Cleared SA and CA"
+                          case compResult if List(0, 1).contains(compResult) =>
+                            s"Failed ,Cleared SA and CA in total, but failed in ${value.filter(_.getAs[String](9)=="FAIL").map(_.getAs[String](2)).mkString(",")}"
                           case _ => "Passed ,Cleared to clear SA. But failed to clear CA"
                         }
                       case _ => "Failed to clear SA"
@@ -456,14 +463,48 @@ object runObj {
                 (caRow.getAs[java.math.BigDecimal](4).add(saRow.getAs[java.math.BigDecimal](4),java.math.MathContext.DECIMAL128)
                   .compareTo(semPassMark.multiply(getBigDecimalFromInt(subList.size),java.math.MathContext.DECIMAL128))
                   , saRow.getAs[java.math.BigDecimal](4).compareTo(saRow.getAs[java.math.BigDecimal](6))) match {
-                  case value if getSuccessCheck(value._1) && getSuccessCheck(value._2) => "PASS"
+                  case resultVal if getSuccessCheck(resultVal._1) && getSuccessCheck(resultVal._2)
+                  && value.map(_.getAs[String](9)=="FAIL").size ==0  => "PASS"
                   case _ => "FAIL"
-                },
-              s"${(Seq(caRow.getAs[String](7)):+saRow.getAs[String](7) ).filter(_.trim.size>0).mkString("~")}"
+                }
                 ,saRow.getAs[String](9).split("\n").map(_.trim).filter(_.size >0) match {case value if value.size ==1 => "" case value => saRow.getAs[String](9)},
               caRow.getAs[String](9).split("\n").map(_.trim).filter(_.size >0) match {case value if value.size ==1 => "" case value => caRow.getAs[String](9)}
+              ,value.map(_ match {case x => (x.getAs[String](9),x.getAs[String](2))}).filter(_._2=="FAIL").distinct match {
+                  case sizeCheck if sizeCheck.size ==0 => ""
+                  case  failureVal => failureVal.map(_._2).mkString("Failed in ",","," subjects")
+                }
+
               )
           }
+
+      /*new StructType(Array(StructField("semId",StringType,true)
+    ,StructField("studentId",StringType,true)
+      ,StructField("subCode",StringType,true)
+      ,StructField("ca_marks",DecimalType(6,3),true)
+      ,StructField("sa_marks",DecimalType(6,3),true)
+      ,StructField("ca_passMarks",DecimalType(6,3),true)
+      ,StructField("sa_passMarks",DecimalType(6,3),true)
+      ,StructField("semTotal",DecimalType(6,3),true)
+      ,StructField("resultComment",StringType,true)
+      ,StructField("result",StringType,true)
+      ,StructField("sa_attendanceComment",StringType,true)
+      ,StructField("ca_attendanceComment",StringType,true)
+      ,StructField("failComments",StringType,true)
+    )))*/
+        finalCalculationWithComments.map(x =>
+        Row(
+          x.getAs[String](0),
+          x.getAs[String](1),
+          x.getAs[String](2),
+          x.getAs[java.math.BigDecimal](3),
+          x.getAs[java.math.BigDecimal](4),
+          x.getAs[java.math.BigDecimal](5),
+          x.getAs[java.math.BigDecimal](6),
+          x.getAs[java.math.BigDecimal](7),
+          x.getAs[String](8),
+          (x.getAs[String](10).trim.size,x.getAs[String](11).trim.size) match {case (0,0) => s"" case (0,a) if a>0=> s"""CA: \n ${x.getAs[String](11)}""" case (a,0) if a>0 => s"""SA: \n ${x.getAs[String](10)}""" case (a,b) =>s"""SA: \n ${x.getAs[String](10)} \nCA: \n ${x.getAs[String](11)}"""}
+          ,x.getAs[String](12)))
+
         }
     )(RowEncoder(new StructType(Array(StructField("semId",StringType,true)
     ,StructField("studentId",StringType,true)
@@ -473,11 +514,10 @@ object runObj {
       ,StructField("ca_passMarks",DecimalType(6,3),true)
       ,StructField("sa_passMarks",DecimalType(6,3),true)
       ,StructField("semTotal",DecimalType(6,3),true)
-      ,StructField("comment",StringType,true)
+      ,StructField("resultComment",StringType,true)
       ,StructField("result",StringType,true)
       ,StructField("attendanceComment",StringType,true)
-      ,StructField("ca_attendanceComment",StringType,true)
-      ,StructField("sa_attendanceComment",StringType,true)
+      ,StructField("failComments",StringType,true)
     )))).show(false)
 
 
