@@ -15,6 +15,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
@@ -50,18 +55,11 @@
             <artifactId>exec-maven-plugin</artifactId>
             <version>1.6.0</version>
         </dependency>
-        <!--  <dependency>
-             <groupId>com.landoop</groupId>
-             <artifactId>avro-sql_${spark.compat.version}</artifactId>
-             <version>1.0.1</version>
-         </dependency> -->
         <dependency>
             <groupId>io.delta</groupId>
             <artifactId>delta-core_2.11</artifactId>
             <version>0.6.0</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_${spark.compat.version}</artifactId>
@@ -72,6 +70,31 @@
             <artifactId>spark-hive_${spark.compat.version}</artifactId>
             <version>2.4.7</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql-kafka-0-10_2.11</artifactId>
+            <version>2.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-exec</artifactId>
+            <version>1.2.1.spark2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-cli</artifactId>
+            <version>1.2.1.spark2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-jdbc</artifactId>
+            <version>1.2.1.spark2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.spark-project.hive</groupId>
+            <artifactId>hive-metastore</artifactId>
+            <version>1.2.1.spark2</version>
         </dependency>
 
     </dependencies>

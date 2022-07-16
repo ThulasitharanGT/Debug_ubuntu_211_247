@@ -514,7 +514,6 @@ object runObj {
       ,StructField("ca_passMarks",DecimalType(6,3),true)
       ,StructField("sa_passMarks",DecimalType(6,3),true)
       ,StructField("semTotal",DecimalType(6,3),true)
-      ,StructField("resultComment",StringType,true)
       ,StructField("result",StringType,true)
       ,StructField("attendanceComment",StringType,true)
       ,StructField("failComments",StringType,true)

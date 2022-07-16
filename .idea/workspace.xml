@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/markCalculation/tmpObj.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$12$$anonfun$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$12$$anonfun$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$15$$anonfun$apply$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$6$$anonfun$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$28.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8$$anonfun$28.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$main$8.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,11 +43,18 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/scala/com/vsms/test" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="Console" />
   </component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/scala/com/vsms/test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.diamond">
     <configuration name="debugTest" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -63,6 +66,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="diamond" type="Application" factoryName="Application">
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.markCalculation.diamondCalculation" />
+      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <option name="PROGRAM_PARAMETERS" value="readStreamFormat=delta path=&quot;hdfs://localhost:8020/user/raptor/persist/marks/GoldToTriggerInput/&quot; goldCAPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/CA_Gold/&quot; goldSAPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/SA_Gold/&quot; semIdExamIDAssessmentYear=&quot;hdfs://localhost:8020/user/raptor/persist/marks/assessmentYearInfo_scd2/&quot; checkpointLocation=&quot;hdfs://localhost:8020/user/raptor/stream/checkpoint/SAGoldToDiamondCalc&quot; examIdToExamType=&quot;hdfs://localhost:8020/user/raptor/persist/marks/semIDAndExamIDAndExamType_scd2/&quot; diamondPath=&quot;hdfs://localhost:8020/user/raptor/persist/marks/diamondCalculatedAndPartitioned/&quot; semIdAndExamIdAndSubCode=hdfs://localhost:8020/user/raptor/persist/marks/semIDAndExamIDAndSubCode_scd2/" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.debugTest" />
+      <item itemvalue="Application.diamond" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -101,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657470000683</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="debug">
+      <created>1657521529268</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657521529268</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -120,6 +143,11 @@
           <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala</url>
           <line>309</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="scala-line">
+          <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/markCalculation/diamondCalculation.scala</url>
+          <line>1734</line>
+          <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
