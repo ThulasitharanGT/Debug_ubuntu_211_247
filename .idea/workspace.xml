@@ -5,12 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/markCalculation/tmpObj.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/runObj.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$$anonfun$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/runObj$.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +119,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657521529268</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="debug">
+      <created>1657989569113</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657989569113</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -146,7 +148,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="scala-line">
           <url>file://$PROJECT_DIR$/src/main/scala/com/vsms/test/markCalculation/diamondCalculation.scala</url>
-          <line>1734</line>
+          <line>944</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sun Jul 17 12:10:14 IST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0182-0ae2-d6be-000064d69870 
+on database directory /home/raptor/IdeaProjects/Debug_ubuntu_211_247/metastore_db with class loader org.apache.spark.sql.hive.client.IsolatedClientLoader$$anon$1@1a4ac836 
+Loaded from file:/home/raptor/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_221-b11
+user.dir=/home/raptor/IdeaProjects/Debug_ubuntu_211_247
+os.name=Linux
+os.arch=amd64
+os.version=4.15.0-188-generic
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
