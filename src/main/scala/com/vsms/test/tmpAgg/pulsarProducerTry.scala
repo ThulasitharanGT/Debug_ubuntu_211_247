@@ -11,7 +11,7 @@ object pulsarProducerTry {
       .build
 
     val pulsarProducer=pulsarClient.newProducer.producerName("prod1")
-      .topic("coolTopic1")
+      .topic("cool1")
       .create
 
     pulsarProducer.send("message".getBytes)

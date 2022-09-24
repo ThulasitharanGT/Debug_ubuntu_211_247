@@ -11,7 +11,7 @@ object pulsarConsumerTry {
 
     val reader = pulsarClient.newReader.readerName("reader1")
       .subscriptionName("sub2")
-      .topic("coolTopic")
+      .topic("cool1")
       .startMessageId(org.apache.pulsar.client.api.MessageId.earliest)
       .create
 
