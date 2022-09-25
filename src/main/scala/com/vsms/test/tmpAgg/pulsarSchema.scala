@@ -9,12 +9,13 @@ object pulsarSchema {
       .serviceUrl("pulsar://localhost:6650").build
 
     val pulsarProducer = pulsarClient
-      .newProducer(JSONSchema.of(new tmpUserCool("",0).getClass.asInstanceOf[Class[tmpUserCool]]))
-      .producerName("producer1")
-      .topic("cool1")
+      .newProducer(JSONSchema.of(new tmpUserCool().getClass.asInstanceOf[Class[tmpUserCool]]))
+      .producerName("producer2")
+      .topic("cool2")
       .create
 
     pulsarProducer.send(new tmpUserCool("coolTopic1",12))
+    pulsarProducer.newMessage.value(new tmpUserCool("coolTopic2",22)).key("kulkulkool").send
 
     pulsarProducer.close
     pulsarClient.close
