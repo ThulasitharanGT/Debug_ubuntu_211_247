@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaConsumer.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaTmpConsumer.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchema.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchema.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +57,7 @@
       <recent name="$PROJECT_DIR$/src/main/scala/com/vsms/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.pulsarSchemaConsumer (1)">
+  <component name="RunManager" selected="Application.pulsarPrimitiveSchema">
     <configuration name="debugTest" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -94,8 +91,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pulsarProducerTry" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarProducerTry" />
+    <configuration name="pulsarPrimitiveSchema" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarPrimitiveSchema" />
       <module name="Vehiche_showroom_management_system_maven_release_1_0" />
       <extension name="coverage">
         <pattern>
@@ -149,19 +146,19 @@
     <list>
       <item itemvalue="Application.debugTest" />
       <item itemvalue="Application.diamond" />
-      <item itemvalue="Application.pulsarProducerTry" />
       <item itemvalue="Application.pulsarSchema" />
       <item itemvalue="Application.pulsarConsumerTry" />
       <item itemvalue="Application.pulsarSchemaConsumer" />
       <item itemvalue="Application.pulsarSchemaConsumer (1)" />
+      <item itemvalue="Application.pulsarPrimitiveSchema" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.pulsarPrimitiveSchema" />
         <item itemvalue="Application.pulsarSchemaConsumer (1)" />
         <item itemvalue="Application.pulsarSchemaConsumer" />
         <item itemvalue="Application.pulsarSchema" />
         <item itemvalue="Application.pulsarConsumerTry" />
-        <item itemvalue="Application.pulsarProducerTry" />
       </list>
     </recent_temporary>
   </component>
@@ -244,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664031400225</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="debug">
+      <created>1664103523377</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664103523377</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
