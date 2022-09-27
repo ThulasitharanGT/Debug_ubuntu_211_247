@@ -116,9 +116,9 @@ object pulsarPrimitiveSchema {
       case "byte" =>
         java.lang.Byte.valueOf(getStringFromBytes(data)).toChar
       case "short" =>
-        ByteBuffer.wrap(data).order(ByteOrder.LITTLE_ENDIAN).asShortBuffer.array.head
+        new String(data).toShort
       case "string" =>
-        new String(data, StandardCharsets.UTF_8)
+        new String(data)
       case "int" =>
         new String(data, StandardCharsets.UTF_8).toInt
       case "long" =>
