@@ -5,8 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaDerived.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getDataFromByteArray$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getDataFromByteArray$1$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -248,7 +252,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664103523377</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="debug">
+      <created>1664294723215</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664294723215</updated>
+    </task>
+    <task id="LOCAL-00013" summary="debug">
+      <created>1664294818069</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1664294818069</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -116,19 +116,19 @@ object pulsarPrimitiveSchema {
       case "byte" =>
         java.lang.Byte.valueOf(getStringFromBytes(data)).toChar
       case "short" =>
-        new String(data).toShort
+        data.map(_.shortValue).map(_.toChar)
       case "string" =>
-        new String(data)
+        new String(data, StandardCharsets.UTF_8)
       case "int" =>
-        new String(data, StandardCharsets.UTF_8).toInt
+        data.map(_.intValue).map(_.toChar)
       case "long" =>
-        new String(data, StandardCharsets.UTF_8).toLong
+        data.map(_.longValue).map(_.toChar)
       case "float" =>
-        new String(data, StandardCharsets.UTF_8).toFloat
+        data.map(_.floatValue).map(_.toChar)
       case "double" =>
-        new String(data, StandardCharsets.UTF_8).toDouble
+        data.map(_.doubleValue).map(_.toChar)
       case "bytes" =>
-        getStringFromBytes(data).map(x => java.lang.Byte.valueOf(x.toString))
+        getStringFromBytes(data).map(x => java.lang.Byte.valueOf(x.toString)).map(_.toChar)
       case value if value.contains("timestamp") =>
         new java.sql.Timestamp(simpleDateFormat.parse(new String(data, StandardCharsets.UTF_8)).getTime)
       case value if value.contains("sql.date") =>
@@ -146,6 +146,8 @@ object pulsarPrimitiveSchema {
       case value if value.contains("time.local.time") =>
         java.time.LocalTime.parse(new String(data, StandardCharsets.UTF_8))
     }
+
+    // except for bolean and string it's very problematic to parse others. Just use json format and send it as string
 
     val pulsarConsumerBoolean= pulsarClient.newReader(Schema.BOOL).topic("topicBoolean").subscriptionName(s"subscriptionPulsarConsumerBoolean").startMessageId(org.apache.pulsar.client.api.MessageId.earliest).create
 
