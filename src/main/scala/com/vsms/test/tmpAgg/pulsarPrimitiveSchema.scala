@@ -2,7 +2,6 @@ package com.vsms.test.tmpAgg
 
 import org.apache.pulsar.client.api.Schema
 
-import java.nio.{ByteBuffer, ByteOrder}
 import java.nio.charset.StandardCharsets
 
 object pulsarPrimitiveSchema {
@@ -52,6 +51,9 @@ object pulsarPrimitiveSchema {
     pulsarProducerJavaTimeLocalDate.send(java.time.LocalDate.now)
     pulsarProducerJavaTimeLocalDateTime.send(java.time.LocalDateTime.now)
     pulsarProducerJavaTimeLocalTime.send(java.time.LocalTime.now)
+
+    println("done producing")
+
 
     val simpleDateFormatInstant=new java.text.SimpleDateFormat("yyyy-MM-dd'T'hh:mm:ss.SSS'Z'")
     val simpleDateFormat=new java.text.SimpleDateFormat("yyyy-MM-dd hh:mm:ss")
