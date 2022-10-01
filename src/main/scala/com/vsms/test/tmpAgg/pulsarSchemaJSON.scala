@@ -2,7 +2,7 @@ package com.vsms.test.tmpAgg
 
 import org.apache.pulsar.client.impl.schema.JSONSchema
 
-object pulsarSchema {
+object pulsarSchemaJSON {
 
   def main (args:Array[String]):Unit ={
     val pulsarClient =org.apache.pulsar.client.api.PulsarClient.builder

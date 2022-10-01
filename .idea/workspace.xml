@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarUtils.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/staticSchemaDerived.scala" afterDir="false" />
+    <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="schema">
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarDerivedSchemaDefinition.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/recordSchemaBuilder.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/userClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarPrimitiveSchema.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaDerived.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaDerived.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getDataFromByteArray$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getDataFromByteArray$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getStringFromBytes$1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$$anonfun$getStringFromBytes$1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/vsms/test/tmpAgg/pulsarPrimitiveSchema$.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchema.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaJSON.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaConsumer.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsarSchemaJSONConsumer.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +61,7 @@
       <recent name="$PROJECT_DIR$/src/main/scala/com/vsms/test" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.staticSchemaDerived">
+  <component name="RunManager" selected="Application.pulsarDerivedSchemaDefinition">
     <configuration name="debugTest" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -84,6 +82,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="pulsarDerivedSchemaDefinition" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarDerivedSchemaDefinition" />
+      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vsms.test.tmpAgg.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="pulsarPrimitiveSchema" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarPrimitiveSchema" />
       <module name="Vehiche_showroom_management_system_maven_release_1_0" />
@@ -97,34 +108,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pulsarSchemaConsumer (1)" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarSchemaConsumer" />
-      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vsms.test.tmpAgg.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="pulsarSchemaConsumer" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarSchemaTmpConsumer" />
-      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vsms.test.tmpAgg.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="pulsarSchemaDerived" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsarSchemaDerived" />
+      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vsms.test.tmpAgg.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="recordSchemaBuilder" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.recordSchemaBuilder" />
       <module name="Vehiche_showroom_management_system_maven_release_1_0" />
       <extension name="coverage">
         <pattern>
@@ -152,19 +150,19 @@
     <list>
       <item itemvalue="Application.debugTest" />
       <item itemvalue="Application.diamond" />
-      <item itemvalue="Application.pulsarSchemaConsumer" />
-      <item itemvalue="Application.pulsarSchemaConsumer (1)" />
       <item itemvalue="Application.pulsarPrimitiveSchema" />
       <item itemvalue="Application.pulsarSchemaDerived" />
       <item itemvalue="Application.staticSchemaDerived" />
+      <item itemvalue="Application.recordSchemaBuilder" />
+      <item itemvalue="Application.pulsarDerivedSchemaDefinition" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.pulsarDerivedSchemaDefinition" />
+        <item itemvalue="Application.recordSchemaBuilder" />
         <item itemvalue="Application.staticSchemaDerived" />
         <item itemvalue="Application.pulsarSchemaDerived" />
         <item itemvalue="Application.pulsarPrimitiveSchema" />
-        <item itemvalue="Application.pulsarSchemaConsumer (1)" />
-        <item itemvalue="Application.pulsarSchemaConsumer" />
       </list>
     </recent_temporary>
   </component>
@@ -275,12 +273,20 @@
       <option name="project" value="LOCAL" />
       <updated>1664340296606</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="schema">
+      <created>1664467858933</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1664467858933</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="debug" />
-    <option name="LAST_COMMIT_MESSAGE" value="debug" />
+    <MESSAGE value="schema" />
+    <option name="LAST_COMMIT_MESSAGE" value="schema" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

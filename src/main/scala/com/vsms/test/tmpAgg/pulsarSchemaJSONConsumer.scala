@@ -5,7 +5,7 @@ import org.apache.pulsar.client.impl.schema.JSONSchema
 import java.nio.charset.StandardCharsets
 import scala.collection.JavaConverters._
 
-object pulsarSchemaConsumer {
+object pulsarSchemaJSONConsumer {
 
   def main(args:Array[String]):Unit= {
     val pulsarClient = org.apache.pulsar.client.api.PulsarClient.builder
