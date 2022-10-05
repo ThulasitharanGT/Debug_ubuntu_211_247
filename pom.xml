@@ -130,6 +130,31 @@
                     <mainClass>com.vsms.controller.TotalFunctionDF</mainClass>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>6</source>
+                    <target>6</target>
+                </configuration>
+            </plugin>
+
+
+             <plugin>
+                 <groupId>org.apache.maven.plugins</groupId>
+                 <artifactId>maven-assembly-plugin</artifactId>
+                 <configuration>
+                     <archive>
+                         <manifest>
+                             <mainClass>com.vsms.controller.TotalFunctionDF</mainClass>
+                         </manifest>
+                     </archive>
+                     <descriptorRefs>
+                         <descriptorRef>jar-with-dependencies</descriptorRef>
+                     </descriptorRefs>
+                        </configuration>
+             </plugin>
+
         </plugins>
     </build>
 
