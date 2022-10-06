@@ -34,16 +34,16 @@ object pulsarRouter extends Function[String,Option[Throwable]]{
 
   def writeToTopic(controlStr:String,msg:String)=(controlStr.toLowerCase,pulsarUtils.pulsarUtil("pulsar://localhost:6650")) match {
     case ("fruit",pulsarInstance) =>
-      sendMessage(msg,pulsarInstance.getPulsarProducer[String]("fruitProd",fruitTopic,Some(org.apache.pulsar.client.api.Schema.STRING)))
+      sendMessage(msg,pulsarInstance.getPulsarProducer[String]("fruitProd",fruitTopic,Some(org.apache.pulsar.client.api.Schema.STRING)).asInstanceOf[org.apache.pulsar.client.api.Producer[String]])
       pulsarInstance.closePulsarClient()
     case ("vegetable",pulsarInstance) =>
-      sendMessage(msg,pulsarInstance.getPulsarProducer[String]("vegetableProd",vegetableTopic,Some(org.apache.pulsar.client.api.Schema.STRING)))
+      sendMessage(msg,pulsarInstance.getPulsarProducer[String]("vegetableProd",vegetableTopic,Some(org.apache.pulsar.client.api.Schema.STRING)).asInstanceOf[org.apache.pulsar.client.api.Producer[String]])
       pulsarInstance.closePulsarClient()
   }
 
-  def sendMessage[T <: Any](msg:String,pulsarProducer:org.apache.pulsar.client.api.Producer[ _ >: T with Array[Byte]]) =
+  def sendMessage[T <: Any](msg:T,pulsarProducer:org.apache.pulsar.client.api.Producer[ T]) =
     {
-      pulsarProducer.send[T](msg.getBytes)
+      pulsarProducer.send(msg)
       pulsarProducer.close
     }
 
