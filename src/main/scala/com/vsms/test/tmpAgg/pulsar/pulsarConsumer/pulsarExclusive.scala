@@ -1,5 +1,7 @@
 package com.vsms.test.tmpAgg.pulsar.pulsarConsumer
 
+import com.vsms.test.tmpAgg.pulsar.pulsarConsumer.consumerUtil.printMsg
+
 object pulsarExclusive {
   def main(args:Array[String]):Unit ={
 
@@ -22,17 +24,5 @@ object pulsarExclusive {
       printMsg(pulsarConsumer.receive)
   }
 
-  def printMsg[T](msg: org.apache.pulsar.client.api.Message[T]): Unit ={
-    println(s"msg getKey ${msg.getKey}")
-    println(s"msg getData ${msg.getData.map(_.toChar).mkString}")
-    println(s"msg getIndex ${ scala.util.Try{msg.getIndex.get} match {
-      case scala.util.Success(s) =>
-        s
-      case scala.util.Failure(f) =>
-        ""
-    }}")
-    println(s"msg getEventTime ${msg.getEventTime}")
-    println(s"msg getMessageId ${msg.getMessageId}")
-    println(s"msg getSequenceId ${msg.getSequenceId}")
-  }
+
 }
