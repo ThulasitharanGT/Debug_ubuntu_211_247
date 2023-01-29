@@ -19,4 +19,14 @@ object consumerUtil {
     println(s"msg getMessageId ${msg.getMessageId}")
     println(s"msg getSequenceId ${msg.getSequenceId}")
   }
+
+  def printMsgAndAck[T](msg: org.apache.pulsar.client.api.Message[T],info:Option[Any]=None) ={
+    printMsg(msg)
+    msg.getMessageId
+  }
+
+  def getPulsarClient(clientURL:String="https://localhost:6650")= org.apache.pulsar.client.api.PulsarClient.builder.serviceUrl(clientURL).build
+
+  def getInputMap(args:Array[String])= args.foldLeft(collection.mutable.Map[String,String]().empty)((map,arg)=> arg.split("=",2) match {case argSplit => {map.put(argSplit(0),argSplit(1)) ; map} })
+
 }

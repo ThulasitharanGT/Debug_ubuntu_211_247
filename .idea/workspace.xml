@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="113ae613-aa0b-4eed-a461-edee4e38c98f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/consumerUtil.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarShared_1.scala" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarShared_2.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarFailOver_1.scala" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarFailOver_2.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarExclusive.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/pulsarExclusive.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/consumerUtil.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/com/vsms/test/tmpAgg/pulsar/pulsarConsumer/consumerUtil.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,19 +75,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.pulsarShared_2">
-    <configuration name="checkClass" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsar.checkClass" />
-      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.vsms.test.tmpAgg.pulsar.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="debugTest" type="Application" factoryName="Application">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -123,12 +109,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="pulsarNativeAvroSchema" type="Application" factoryName="Application" temporary="true">
-      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsar.pulsarNativeAvroSchema" />
+    <configuration name="pulsarFailOver_1" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsar.pulsarConsumer.pulsarFailOver_1" />
       <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <option name="PROGRAM_PARAMETERS" value="topic=persistent://temproaryTenant/temproaryNamespace/nonPartitionedTopic consumerName=consumer_1 subscriptionName=subs serviceURL=pulsar://localhost:6650" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.vsms.test.tmpAgg.pulsar.*" />
+          <option name="PATTERN" value="com.vsms.test.tmpAgg.pulsar.pulsarConsumer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="pulsarFailOver_2" type="Application" factoryName="Application" temporary="true">
+      <option name="MAIN_CLASS_NAME" value="com.vsms.test.tmpAgg.pulsar.pulsarConsumer.pulsarFailOver_2" />
+      <module name="Vehiche_showroom_management_system_maven_release_1_0" />
+      <option name="PROGRAM_PARAMETERS" value="topic=persistent://temproaryTenant/temproaryNamespace/nonPartitionedTopic consumerName=consumer_2 subscriptionName=subs serviceURL=pulsar://localhost:6650" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.vsms.test.tmpAgg.pulsar.pulsarConsumer.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -167,19 +168,19 @@
     <list>
       <item itemvalue="Application.debugTest" />
       <item itemvalue="Application.diamond" />
-      <item itemvalue="Application.pulsarNativeAvroSchema" />
-      <item itemvalue="Application.checkClass" />
       <item itemvalue="Application.pulsarExclusive" />
       <item itemvalue="Application.pulsarShared_1" />
       <item itemvalue="Application.pulsarShared_2" />
+      <item itemvalue="Application.pulsarFailOver_1" />
+      <item itemvalue="Application.pulsarFailOver_2" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.pulsarShared_2" />
         <item itemvalue="Application.pulsarShared_1" />
+        <item itemvalue="Application.pulsarFailOver_1" />
+        <item itemvalue="Application.pulsarFailOver_2" />
         <item itemvalue="Application.pulsarExclusive" />
-        <item itemvalue="Application.checkClass" />
-        <item itemvalue="Application.pulsarNativeAvroSchema" />
       </list>
     </recent_temporary>
   </component>
@@ -325,14 +326,22 @@
       <option name="project" value="LOCAL" />
       <updated>1672321641228</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="shared subs">
+      <created>1674989885837</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1674989885837</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="debug" />
     <MESSAGE value="schema" />
     <MESSAGE value="some files" />
-    <option name="LAST_COMMIT_MESSAGE" value="some files" />
+    <MESSAGE value="shared subs" />
+    <option name="LAST_COMMIT_MESSAGE" value="shared subs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

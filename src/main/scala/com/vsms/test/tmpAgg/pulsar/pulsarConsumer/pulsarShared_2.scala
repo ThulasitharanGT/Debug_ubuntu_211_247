@@ -1,6 +1,6 @@
 package com.vsms.test.tmpAgg.pulsar.pulsarConsumer
 
-import com.vsms.test.tmpAgg.pulsar.pulsarConsumer.consumerUtil.printMsg
+import com.vsms.test.tmpAgg.pulsar.pulsarConsumer.consumerUtil.{printMsg, printMsgAndAck}
 
 object pulsarShared_2 {
 def main(args:Array[String]):Unit={
@@ -19,7 +19,7 @@ def main(args:Array[String]):Unit={
     .topic(inputMap("topic")).subscribe
 
   while(pulsarConsumer.isConnected)
-    printMsg[Array[Byte]](pulsarConsumer.receive,Some("two_2".asInstanceOf[Any]))
+    pulsarConsumer.acknowledge(printMsgAndAck[Array[Byte]](pulsarConsumer.receive,Some("one_1".asInstanceOf[Any])))
 
 }
 }

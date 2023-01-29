@@ -1,8 +1,9 @@
 package com.vsms.test.tmpAgg.pulsar.pulsarConsumer
-
-import com.vsms.test.tmpAgg.pulsar.pulsarConsumer.consumerUtil.printMsg
 // same subscription name and diff consumer names are not splitting the workload, it's processing to payload n times, where n is the number of consumers
+
+import com.vsms.test.tmpAgg.pulsar.pulsarConsumer.consumerUtil.{printMsg, printMsgAndAck}
 import scala.util.control.Breaks._
+
 object pulsarShared_1 {
 def main(args:Array[String]):Unit={
 
@@ -42,7 +43,7 @@ def main(args:Array[String]):Unit={
  */
 
   while(pulsarConsumer.isConnected)
-    printMsg[Array[Byte]](pulsarConsumer.receive,Some("one_1".asInstanceOf[Any]))
+    pulsarConsumer.acknowledge(printMsgAndAck[Array[Byte]](pulsarConsumer.receive,Some("one_1".asInstanceOf[Any])))
 
 
 }
